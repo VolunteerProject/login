@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Portal',
+    'rest_framework',
+    'social_django',
 ]
 
 # we’re going to use Google accounts to establish the authentication,
