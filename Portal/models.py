@@ -1,22 +1,25 @@
-from django.db import models
+
 from datetime import datetime
+
+from django.db import models
+
 
 
 class User(models.Model):
-    user_id=models.PositiveIntegerField(primary_key=True)
-    first_name=models.CharField(max_length=100)
-    last_name= models.CharField(max_length=100)
-    email= models.EmailField(max_length=50)
-    approved_field= models.BooleanField()
+    user_id = models.PositiveIntegerField(primary_key=True)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=50)
+    approved_field = models.BooleanField()
     add1 = models.CharField(max_length=50)
-    add2 =models.CharField(max_length=50)
-    country=models.CharField(max_length=50)
-    state=models.CharField(max_length=50)
-    city=models.CharField(max_length=50)
-    zip= models.PositiveIntegerField()
-    county= models.CharField(max_length=50)
-    signed_on= models.DateTimeField()
-    can_flag_connect= models.BooleanField()
+    add2  = models.CharField(max_length=50)
+    country = models.CharField(max_length=50)
+    state = models.CharField(max_length=50)
+    city = models.CharField(max_length=50)
+    zip = models.PositiveIntegerField()
+    county = models.CharField(max_length=50)
+    signed_on = models.DateTimeField()
+    can_flag_connect = models.BooleanField()
     tutor_flag = models.BooleanField()
     tutor_flag_date=models.DateTimeField(default=datetime.now)
     volunteer_flag_date=models.DateTimeField(default=datetime.now)
@@ -38,6 +41,7 @@ class Volunteer_Work(models.Model):
 
     def __str__(self):
         return self.service_name
+
 
 class Organization(models.Model):
     org_id = models.PositiveIntegerField(primary_key=True)
@@ -68,6 +72,8 @@ class Services(models.Model):
 
     def __str__(self):
         return self.service_name
+
+
 
 
 

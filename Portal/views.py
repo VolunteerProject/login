@@ -4,7 +4,8 @@ from django.contrib.auth import login,authenticate
 from .forms import RegisterForm
 
 
-def index(request):
+def home(request):
+
     return render(request, 'index.html')
 
 
@@ -16,7 +17,7 @@ def userlogin(request):
 
         if user is not None:
             login(request,user)
-            return redirect('index')
+            return redirect('home')
         else:
             messages.info(request,'username or password is incorrect')
             return render(request, 'registration/login1.html')
@@ -38,3 +39,5 @@ def registerView(request):
     else:
         form=RegisterForm()
     return render(request, 'registration/register.html',{"form":form})
+
+

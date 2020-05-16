@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import Services
+from Portal.models import Organization
 
 
-class ServicesSerializer(serializers.ModelSerializer):
+class OrgSerializer(serializers.ModelSerializer):
     class Meta:
-        model=Services
+        model=Organization
         fields='__all__'
