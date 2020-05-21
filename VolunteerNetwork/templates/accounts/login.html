@@ -1,0 +1,84 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from rn53themes.net/themes/demo/directory/admin-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 May 2020 08:21:55 GMT -->
+<head>
+    <title>World Best Local Directory Website template</title>
+    
+	<!-- META TAGS -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- FAV ICON(BROWSER TAB ICON) -->
+	<link rel="shortcut icon" href="{% static 'images/fav.ico' %}" type="image/x-icon">
+	<!-- GOOGLE FONT -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins%7CQuicksand:500,700" rel="stylesheet">
+	<!-- FONTAWESOME ICONS -->
+	<link rel="stylesheet" href={% static 'css/font-awesome.min.css' %}">
+	<!-- ALL CSS FILES -->
+	<link href="{% static 'css/materialize.css' %}" rel="stylesheet">
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+	<link href={% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" />
+	<!-- RESPONSIVE.CSS ONLY FOR MOBILE AND TABLET VIEWS -->
+	<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div id="preloader">
+		<div id="status">&nbsp;</div>
+	</div>
+	<section class="tz-login">
+		<div class="tz-regi-form">
+			<h4>Sign In</h4>
+			<p>It's free and always will be.</p>
+			<p class='has-text-centered'>{{ message }}</p>
+			<form class="col s12" method="POST" action="{% url 'login' %}">
+				{% csrf_token %}
+				<div class="row">
+					<div class="row">
+						
+						<label for="{{ form.username.id_for_label }}" class="label">
+							Username
+						</label>
+						<div class="control">
+							{{ form.username|add_class:"input" }}
+						  </div>
+						  <p class="help is-danger">{{ form.username.errors }}</p>
+					</div>
+				</div>
+				<div class="row">
+					<label for="{{ form.password.id_for_label }}" class="label">
+						Password
+					  </label>
+					  <div class="control">
+						{{ form.password|add_class:"input" }}
+					  </div>
+					  <p class="help is-danger">{{ form.password.errors }}</p>
+				</div>
+				<div class="row">
+					<div class="input-field col s12"> <i class="waves-effect waves-light btn-large full-btn waves-input-wrapper" style=""><input type="submit" value="submit" class="waves-button-input"></i> </div>
+				</div>
+				
+			</form>
+			<p><a href="admin-pass.html">forgot password</a> | Are you a new user ? <a href="{% url "register" %}">Register</a> </p>
+		</div>
+	</section>
+	<!--SCRIPT FILES-->
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.js' %}" type="text/javascript"></script>
+	<script src="{% static 'js/materialize.min.js' %}" type="text/javascript"></script>
+	<script src="{% static 'js/custom.js' %}"></script>
+	
+</body>
+
+
+<!-- Mirrored from rn53themes.net/themes/demo/directory/admin-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 May 2020 08:21:55 GMT -->
+</html>

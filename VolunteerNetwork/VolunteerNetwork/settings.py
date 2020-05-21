@@ -25,7 +25,7 @@ SECRET_KEY = '=p5%_^dajet3b%t@8s2f4bzncro$=yi57zm4cq$$iefrwia=05'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0']
 
 
 # Application definition
@@ -38,8 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'Portal'
+    'Portal',
+    'accounts',
+    
+    'widget_tweaks',
+    'guardian',
 ]
+
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend', 'guardian.backends.ObjectPermissionBackend')
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -56,7 +64,7 @@ ROOT_URLCONF = 'VolunteerNetwork.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,3 +128,23 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+
+LOGIN_REDIRECT_URL = "index"
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'ujjwalkumar37920@gmail.com'
+EMAIL_HOST_PASSWORD = 'U@99584426k'
+EMAIL_PORT = 587
+PASSWORD_RESET_TIMEOUT_DAYS = 2
+
+
+LOGOUT_REDIRECT_URL = '/login/'
+LOGIN_REDIRECT_URL = '/index/'
+
+LOGIN_ERROR_URL = '/login/'
+
