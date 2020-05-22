@@ -91,6 +91,7 @@ class LoginView(View):
             login(request, user)
 
             return redirect(reverse('index'))
+        return render(request,'accounts/login.html',{'form':form})
 
 
 def index(request):
